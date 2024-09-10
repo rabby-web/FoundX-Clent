@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 
-import { Navbar } from "@/src/components/navbar";
+import { Navbar } from "@/src/components/UI/navbar";
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
