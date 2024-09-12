@@ -1,10 +1,17 @@
 /* eslint-disable prettier/prettier */
+// eslint-disable-next-line prettier/prettier
+/* eslint-disable padding-line-between-statements */
+/* eslint-disable prettier/prettier */
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
 
 import Container from "../../UI/Container";
 
-const ResentPosts = () => {
+const ResentPosts = async () => {
+  const res = await fetch(
+    "http://localhost:5000/api/v1/items?sortBy=createdAt&limit=9"
+  );
+  console.log("data", await res.json());
   return (
     <Container>
       <div className="section-title my-8">
