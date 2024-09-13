@@ -7,11 +7,13 @@ import Link from "next/link";
 
 import Container from "../../UI/Container";
 
+import { getRecentPosts } from "@/src/services/RecentPosts";
+
 const ResentPosts = async () => {
-  const res = await fetch(
-    "http://localhost:5000/api/v1/items?sortBy=createdAt&limit=9"
-  );
-  console.log("data", await res.json());
+  const { data: posts } = await getRecentPosts();
+
+  console.log(posts);
+
   return (
     <Container>
       <div className="section-title my-8">
@@ -21,9 +23,9 @@ const ResentPosts = async () => {
         </p>
       </div>
       <div className="my-8 grid justify-center gap-10 sm:grid-cols-1 md:grid-cols-4">
-        {/* {posts.map((item) => (
-          <p>{item.title}</p>
-        ))} */}
+        {posts.map((item: any) => (
+          <p>{item.title} </p>
+        ))}
       </div>
       <div className="flex justify-center">
         <Button className="rounded-md bg-default-900 text-default" size="md">
