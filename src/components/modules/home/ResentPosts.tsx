@@ -8,6 +8,7 @@ import Link from "next/link";
 import Container from "../../UI/Container";
 
 import { getRecentPosts } from "@/src/services/RecentPosts";
+import Card from "../../UI/Card";
 
 const ResentPosts = async () => {
   const { data: posts } = await getRecentPosts();
@@ -23,8 +24,11 @@ const ResentPosts = async () => {
         </p>
       </div>
       <div className="my-8 grid justify-center gap-10 sm:grid-cols-1 md:grid-cols-4">
-        {posts.map((item: any) => (
+        {/* {posts.map((item: any) => (
           <p>{item.title} </p>
+        ))} */}
+        {posts.map((post) => (
+          <Card key={post?._id} post={post}></Card>
         ))}
       </div>
       <div className="flex justify-center">
